@@ -1,0 +1,83 @@
+@mixin flex ( $justify: center, $align: center, $direction:row){
+  display: -webkit-box; 
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex; 
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin font-face($font-name, $weight) {
+  font-family: $font-name, sans-serif;
+  font-weight: $weight;
+}
+
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
+
+
+// modifiers
+
+@mixin modifiers($map, $attribute, $prefix: '-', $separator: '-', $base: 'base') {
+  @each $key, $value in $map {
+    &#{if($key != $base, #{$prefix}#{$key}, '')} {
+      @if type-of($value) == 'map' {
+        @include modifiers($value, $attribute, $separator);
+      }
+      @else {
+        #{$attribute}: $value;
+      }
+    }
+  }
+}
+
+// media breakpoints
+
+@mixin bp-large  {
+  @media only screen and (max-width: 60rem) { // değer geçici olarak verilmiştir -- düzeltilecek
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 40rem) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 30rem) {
+    @content;
+  }
+}

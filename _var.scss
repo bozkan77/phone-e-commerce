@@ -1,0 +1,17 @@
+
+// font-color
+$main-font-color:#232528;
+
+// colors
+$colors: (
+    gray: (base: #444444, light: #f1f1f1), 
+    blue: (base: #7699D4, dark: rgb(31, 67, 129)), 
+    second-blue:(base:#63B4D1),
+    lilac:(base:#9448BC),
+    warning: (base: #ffc107), 
+    succes: (base: #28a745), 
+    danger: (base: #dc3545), 
+    info: (base: #17a2b8),
+    white:(base: #fff)
+    );
+$trans:all ease .4s;

@@ -1,0 +1,171 @@
+html{
+  font: {
+    size: 62.5%;
+  }
+}
+
+body{
+  @include font-face('Roboto Condensed', 400);
+  color: $main-font-color;
+  font: {
+    size: 1.6rem
+  }
+}
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+.title-text{
+  @include font-face('Oswald', 600);
+  
+}
+
+.color {
+  @include modifiers($colors, "color", $separator:'--');
+}
+.background {
+  @include modifiers($colors, "background", $separator:'--');
+}
+.navbar{
+  height: 5rem;
+  @extend .background-blue;
+}
+.logo{
+  width: 4rem;
+}
+.btn{
+  @extend .color-gray;
+  border: 1px solid #444;
+  @include font-face('Oswald', 400);
+  background: transparent;
+  @include transition($trans);
+  font: {
+    size: 1.6rem;
+  }
+  > i {
+    font: {
+      size: 2rem;
+    }
+  }
+  &:hover {
+    @extend .background-gray;
+    @extend .color-white;
+    
+  }
+}
+.nav-item{
+  @extend .color-white
+}
+.product-title{
+  @include font-face('Roboto Condensed', 400);
+}
+.product-list-container{
+  @extend .background-gray--light;
+}
+.card{
+  border-color: transparent;
+  @include transition($trans);
+    &:hover{
+      border: .1rem solid rgba(0,0,0,.2);
+      box-shadow: 2px 2px 5px 0px rgba(0,0,0,.2);
+      .card-footer{
+        background: rgb(247,247,247)
+      }
+    }
+}
+.card-footer {
+  background: transparent;
+  border-top: transparent;
+  @include transition($trans);
+}
+.card-img-top {
+  @include transition($trans);
+}
+.img-container{
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    .card-img-top {
+      transform: scale(1.2);
+    }
+    .cart-btn{
+      transform: translate(0,0);
+    }
+  }
+}
+.cart-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: .4rem .8rem;
+  background:#1f4381;
+  border: none;
+  @extend .color-white;
+  border-radius: .5rem 0 0 0;
+  transform: translate(100%, 100%);
+  @include transition($trans);
+  
+}
+.modal-darkness{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .modal-container{
+    background-color: white;
+    border-radius: .3rem;
+    padding: 1.5rem;
+  }
+}
+.keep-shopping{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.go-to-cart{
+  @extend .keep-shopping;
+  border-color: #28a745;
+  @extend .color-succes;
+  margin-left: 1rem;
+  &:hover {
+    @extend .background-succes;
+    @extend .color-white;
+  }
+}
+.button-container{
+  display:flex;
+  justify-content: center;
+}
+.btn-black {
+   background: transparent;
+   text-transform: capitalize;
+   font-size: 1.2rem !important;
+   cursor: pointer;
+   
+}
+.cart-count{
+  border: .1rem solid #444;
+  padding: .57rem 1rem;
+  border-radius: .2rem; 
+  font: {
+    size: 1.2rem;
+   
+  }
+}
+.cart-icon{
+  @extend .color-blue--dark;
+  &:hover{
+    > i{
+      @extend .color-danger
+    }
+  }
+   i {
+     cursor: pointer;
+   }
+}
